@@ -144,6 +144,9 @@ public class PjSipService {
     public void setService(SipService aService) {
         service = aService;
         prefsWrapper = service.getPrefs();
+        //TODO add  by chenshang
+        prefsWrapper.setPreferenceBooleanValue(SipConfigManager.USE_VIDEO,true);
+        //TODO add  by chenshang
     }
 
     public boolean isCreated() {

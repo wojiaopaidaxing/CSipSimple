@@ -561,6 +561,40 @@
                 <action android:name="com.csipsimple.codecs.action.REGISTER_CODEC" />
             </intent-filter>
         </receiver>
+
+        <!--Plugin add by chenshang-->
+
+        <receiver android:exported="false" android:name="com.csipsimple.plugins.codecs.ReceiverG729">
+            <meta-data android:name="lib_name" android:value="libpj_g729_codec.so"/>
+            <meta-data android:name="init_factory" android:value="pjmedia_codec_g729_init"/>
+            <intent-filter>
+                <action android:name="com.csipsimple.codecs.action.REGISTER_CODEC"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.csipsimple.plugins.codecs.VideoPluginReceiver">
+            <intent-filter>
+                <action android:name="com.csipsimple.plugins.action.REGISTER_VIDEO"/>
+            </intent-filter>
+            <meta-data android:name="lib_name" android:value="libpj_video_android.so"/>
+            <meta-data android:name="init_factory" android:value="pjmedia_webrtc_vid_render_factory"/>
+        </receiver>
+        <receiver android:name="com.csipsimple.plugins.codecs.VideoPluginReceiverFfmpeg">
+            <intent-filter>
+                <action android:name="com.csipsimple.codecs.action.REGISTER_VIDEO_CODEC"/>
+            </intent-filter>
+            <meta-data android:name="lib_name" android:value="libpj_video_android.so"/>
+            <meta-data android:name="init_factory" android:value="pjmedia_codec_ffmpeg_vid_init"/>
+            <meta-data android:name="deinit_factory" android:value="pjmedia_codec_ffmpeg_vid_deinit"/>
+        </receiver>
+        <receiver android:name="com.csipsimple.plugins.codecs.VideoPluginReceiverVpx">
+            <intent-filter>
+                <action android:name="com.csipsimple.codecs.action.REGISTER_VIDEO_CODEC"/>
+            </intent-filter>
+            <meta-data android:name="lib_name" android:value="libpj_vpx.so"/>
+            <meta-data android:name="init_factory" android:value="pjmedia_codec_vpx_init"/>
+            <meta-data android:name="deinit_factory" android:value="pjmedia_codec_vpx_deinit"/>
+        </receiver>
         <!-- OPUS? -->
 
 
